@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+// import { AuthFormComponent } from './auth-form/auth-form.component';
+import { AuthFormModule } from "./auth-form/auth-form.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // AuthFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]
