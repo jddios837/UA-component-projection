@@ -10,11 +10,17 @@ import { User } from "./auth-form/auth-form.interface";
 export class AppComponent {
   title = 'ng-component-projection';
 
+  rememberMe: boolean = false;
+
+  rememberUser(remember: boolean) {
+    this.rememberMe = remember;
+  }
+
   createUser(user: User) {
     console.log('Create account', user);
   }
 
   loginUser(user: User) {
-    console.log('Login user', user);
+    console.log('Login user', user, this.rememberMe);
   }
 }

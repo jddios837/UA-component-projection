@@ -8,10 +8,17 @@
 
 <auth-form (submitted)="createUser($event)">
   <h3>Registro de Usuario</h3>
+  <button type="submit">
+    Unete
+  </button>
 </auth-form>
 
 <auth-form (submitted)="loginUser($event)">
   <h3>Login de Usuario</h3>
+  <auth-remember (checked)="rememberUser($event)"></auth-remember>
+  <button type="submit">
+    Iniciar
+  </button>
 </auth-form>
 <!-- <h2>Here are some links to help you start: </h2> -->
 <!-- <ul>
