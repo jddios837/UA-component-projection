@@ -1,4 +1,4 @@
-import { Component, Renderer, OnInit, Output, ViewChild, AfterViewInit, EventEmitter, ContentChildren, QueryList , AfterContentInit, ElementRef } from '@angular/core';
+import { Component, Renderer, OnInit, Input, Output, ViewChild, AfterViewInit, EventEmitter, ContentChildren, QueryList , AfterContentInit, ElementRef } from '@angular/core';
 
 import { AuthRememberComponent } from "./auth-remember.component";
 import { AuthMessageComponent } from "./auth-message.component";
@@ -17,6 +17,8 @@ import { User } from './auth-form.interface';
 	<div>
 		<form (ngSubmit)="onSubmit(form.value)" #form="ngForm">
 			<ng-content select="h3"></ng-content>
+			<h3>{{title}}</h3>
+
 			<label>
 			Email address
 			<input type="email" name="email" #email ngModel>
@@ -27,7 +29,9 @@ import { User } from './auth-form.interface';
 			</label>
 			<ng-content select="auth-remember"></ng-content>
 			<auth-message [style.display]="(showMessage ? 'inherit' : 'none')"></auth-message>
+			
 			<ng-content select="button"></ng-content>
+			<button (click)="onSubmit()">Crear cuenta</button>
 		</form>
 	</div>
 	` 
@@ -44,6 +48,7 @@ export class AuthFormComponent implements AfterContentInit, AfterViewInit {
 	// ContenChildren & QueryLists
 	@ContentChildren(AuthRememberComponent) remember: QueryList<AuthRememberComponent>;
 
+	@Input() title: string = 'Crear Una Cuenta';
 
 	@Output()
 	submitted: EventEmitter<User> = new EventEmitter<User>();

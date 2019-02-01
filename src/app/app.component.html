@@ -1,6 +1,28 @@
 <!-- dinamic injection component -->
 <div>
+  <button (click)="destroyComponent()">
+    Eliminar Componente
+  </button>
+  <button (click)="moveComponent()">
+      Mover Componente
+    </button>
   <div #entry></div>
+
+  
+  
+  <ng-template #tmpl let-name let-location="location">
+    {{ name }}: {{ location }}
+  </ng-template>
+
+  <br>
+
+  <ng-container
+    *ngTemplateOutlet="tmpldinamic; context:ctx">
+  </ng-container>
+
+  <ng-template #tmpldinamic let-name let-location="location">
+      {{ name }}: {{ location }}
+    </ng-template>
 </div>
 
 <!-- <auth-form (submitted)="createUser($event)">
